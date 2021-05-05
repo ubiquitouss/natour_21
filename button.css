@@ -1,0 +1,94 @@
+.text-box{
+    position: absolute;
+    top: 30%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    /*! look at this section closely  */
+    /* ! this is the section where the texts and button in the text box goes just at the middle */
+    /*! this is the parent for the header-text and the  button */
+    /*! position, top,left, transoform have been chosen to move text and the button at the middle automatically  */
+    /* ! first it goes top 50% and left 50% then content itself cuts the 50% and stays at the middle automatically */
+  /* first the top was 50% . but we don't want it exactly at the middle, we want it a little bit upper */
+  /* that's why we have set it to 30% later*/
+    text-align: center;
+    /* the button is just text. we are using this line to keep the button at the center */
+  }
+  
+
+
+.button{
+    background-color: blue;
+    width: 100%;
+    height: 50vh;
+}
+
+.btn:link,.btn:visited{
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    /* so that the button takes it's own space when it's about padding or something like that */
+    border-radius: 100px;
+    transition: all, .2s;
+    position: relative;
+    /* we are setting this to relative becasue of the animation that flashes the button */
+    /* the absolute section for this is .btn::after; */
+  }
+
+  .btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    /* shadow-format */
+    /* box-shadow: x y blur rgba */
+  }
+  .btn:active{
+    transform: translateY(-1px);
+    /* it's not related with the hover state this property is related to the initial state */
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    /* we decreased the value of box-shadow, because we want the  button look more closer to the webpage; */
+  }
+  /* when we click a button it's called the activve state */
+  .btn-white{
+    background-color: yellow;
+    color: #777;
+  }
+  
+  /*! this section is for the animation effect for the button */
+/* the button gets bigger and flashes .. (that effect) */
+.btn::after{
+  /* this whole element will be exactly like the .btn element */
+  content: "";
+  /* we have to specify this 'content' for the btn::after effect . otherwise the button won't work*/
+  display: inline-block;
+  /* the button itself is the inline block thats why this is inline-block too */
+  height: 100%;
+  width: 100%;
+  /* we are setting this 100% because this is working like the child element of the btn. */
+  /* this stays behind  the button */
+  /* this is 100% height and the width of the .btn */
+  border-radius: 100px;
+
+  /* now we need to put the element back to the main button */
+  position: absolute;
+  /* if its an absolute we need an relativve parent */
+  top:0;
+  left: 0;
+  z-index: -1;
+  /* to put it behind the button */
+
+  transition: all .4s;
+}
+.btn-white::after{
+  background-color: yellow;
+}
+.btn:hover::after{
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+  /* this is the trick to fadde it out in the animation */
+}
+.btn-animated{
+  animation: moveInBottom .5s ease-out .75s;
+  /* last value is animation-delay: ; */
+  animation-fill-mode: backwards;
+  /* this solves the timing that the animation starts after the text animation */
+}
