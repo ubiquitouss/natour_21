@@ -1,0 +1,49 @@
+npm init
+
+
+fill the form
+
+npm install node-sass  --save-dev
+
+because sass is a dev dependencies. means it's needed for developers
+normally it should be
+npm install node-sass
+or 
+npm install node-saa --save
+then it will confirmed as normal requirements for the project
+
+npm uninstall 'package' = to uninstall a pacakge
+
+
+
+
+on json script
+"compile:sass": "node-sass sass/main.scss css/style.css -w"
+
+this is sass location and the css location
+css will be over written by sass
+
+npm run compile:sass
+this is the command to execute scss
+
+npm install live-server -g
+g means globally..here we will not use it as dev or save
+
+
+
+websites that was used:
+linea.io
+unsplash.com
+
+coverr.co = for background videos
+
+for django search engine :
+pip install django-filter
+
+
+
+
+django form messages
+
+
+https://docs.djangoproject.com/en/3.0/ref/contrib/messages/#using-messages-in-views-and-templates
